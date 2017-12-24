@@ -292,6 +292,13 @@ def run_gn(target_arch, defines):
 
   for component in COMPONENTS:
     args = 'import("//chromiumcontent/args/{0}.gn") target_cpu="{1}"'.format(component, target_cpu)
+    if target_arch == 'mips64el':
+      args += ' is_debug=true'
+    else:
+      if component == 'shared_library':
+        args += ' is_debug=true'
+      else:
+        args += ' is_debug=false'
     if sys.platform in ['win32', 'cygwin']:
       args += ' use_experimental_allocator_shim=false'
     if sys.platform == 'linux2':

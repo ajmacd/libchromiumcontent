@@ -1,6 +1,5 @@
 root_extra_deps = [ "//chromiumcontent:chromiumcontent" ]
 is_component_build = false
-is_debug = false
 enable_nacl = false
 enable_widevine = true
 proprietary_codecs = false
