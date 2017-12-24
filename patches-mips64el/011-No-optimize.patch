@@ -1,0 +1,62 @@
+diff --git a/build/config/compiler/BUILD.gn b/build/config/compiler/BUILD.gn
+index 3b77c05..a002704 100644
+--- a/build/config/compiler/BUILD.gn
++++ b/build/config/compiler/BUILD.gn
+@@ -1420,9 +1446,9 @@ config("optimize") {
+     cflags = [ "/O1" ] + common_optimize_on_cflags + [ "/Oi" ]
+   } else if (optimize_for_size) {
+     # Favor size over speed.
+-    cflags = [ "-Os" ] + common_optimize_on_cflags
++    cflags = [ "-O0" ] + common_optimize_on_cflags
+   } else {
+-    cflags = [ "-O2" ] + common_optimize_on_cflags
++    cflags = [ "-O0" ] + common_optimize_on_cflags
+   }
+   ldflags = common_optimize_on_ldflags
+ }
+@@ -1435,11 +1461,11 @@ config("optimize_no_wpo") {
+     cflags = [ "/O1" ] + common_optimize_on_cflags + [ "/Oi" ]
+   } else if (optimize_for_size) {
+     # Favor size over speed.
+-    cflags = [ "-Os" ] + common_optimize_on_cflags
++    cflags = [ "-O0" ] + common_optimize_on_cflags
+   } else if (optimize_for_fuzzing) {
+-    cflags = [ "-O1" ] + common_optimize_on_cflags
++    cflags = [ "-O0" ] + common_optimize_on_cflags
+   } else {
+-    cflags = [ "-O2" ] + common_optimize_on_cflags
++    cflags = [ "-O0" ] + common_optimize_on_cflags
+   }
+   ldflags = common_optimize_on_ldflags
+ }
+@@ -1498,9 +1524,9 @@ config("optimize_max") {
+         # TODO(crbug.com/598772): Enable -flto for Clang.
+       }
+     } else if (optimize_for_fuzzing) {
+-      cflags = [ "-O1" ] + common_optimize_on_cflags
++      cflags = [ "-O0" ] + common_optimize_on_cflags
+     } else {
+-      cflags = [ "-O2" ] + common_optimize_on_cflags
++      cflags = [ "-O0" ] + common_optimize_on_cflags
+     }
+   }
+ }
+@@ -1543,15 +1569,15 @@ config("optimize_speed") {
+         ]
+       }
+     } else if (optimize_for_fuzzing) {
+-      cflags = [ "-O1" ] + common_optimize_on_cflags
++      cflags = [ "-O0" ] + common_optimize_on_cflags
+     } else {
+-      cflags = [ "-O3" ] + common_optimize_on_cflags
++      cflags = [ "-O0" ] + common_optimize_on_cflags
+     }
+   }
+ }
+ 
+ config("optimize_fuzzing") {
+-  cflags = [ "-O1" ] + common_optimize_on_cflags
++  cflags = [ "-O0" ] + common_optimize_on_cflags
+   ldflags = common_optimize_on_ldflags
+   visibility = [ ":default_optimization" ]
+ }
