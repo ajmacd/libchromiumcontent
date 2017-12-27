@@ -62,6 +62,7 @@ with open(args.out, 'w') as out:
             "third_party/libdrm",
             "third_party/libXNVCtrl",
             "third_party/libjingle",
+            "third_party/libjingle_xmpp",
             "third_party/libjpeg_turbo",
             "third_party/libpng",
             "third_party/libsrtp",
@@ -75,6 +76,7 @@ with open(args.out, 'w') as out:
             "third_party/mesa",
             "third_party/modp_b64",
             "third_party/mozilla",
+            "third_party/mt19937ar",
             "third_party/openh264",
             "third_party/openmax_dl",
             "third_party/opus",
@@ -131,6 +133,7 @@ with open(args.out, 'w') as out:
             "components/cdm",
             "components/cookie_config",
             "components/crash/core/common",
+            "components/data_use_measurement",
             "components/device_event_log",
             "components/discardable_memory",
             "components/display_compositor",
@@ -138,6 +141,7 @@ with open(args.out, 'w') as out:
             "components/leveldb",
             "components/link_header_util",
             "components/memory_coordinator",
+            "components/metrics",
             "components/mime_util",
             "components/mus/clipboard",
             "components/mus/common",
@@ -158,6 +162,7 @@ with open(args.out, 'w') as out:
             "components/url_formatter",
             "components/variations",
             "components/viz/frame_sinks/frame_sinks",
+            "components/viz/host",
             "components/webcrypto",
             "components/webmessaging",
         ])
@@ -214,6 +219,7 @@ with open(args.out, 'w') as out:
             "services/tracing/public",
             "services/ui/public",
             "services/ui/gpu",
+            "services/ui/surfaces",
             "services/user",
         ] + additional_services)
 
