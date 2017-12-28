@@ -1,0 +1,15 @@
+diff --git a/build/config/compiler/BUILD.gn b/build/config/compiler/BUILD.gn
+index a002704..362184c 100644
+--- a/build/config/compiler/BUILD.gn
++++ b/build/config/compiler/BUILD.gn
+@@ -149,6 +149,10 @@ config("compiler") {
+   defines = []
+   configs = []
+ 
++  if (!is_component_build && current_cpu == "mips64el") {
++    cflags += [ "-mxgot" ]
++  }
++
+   # System-specific flags. If your compiler flags apply to one of the
+   # categories here, add it to the associated file to keep this shared config
+   # smaller.
